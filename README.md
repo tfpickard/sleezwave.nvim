@@ -69,7 +69,7 @@
 
 ```lua
 {
-  "yourusername/sleezwave.nvim",
+  "tfpickard/sleezwave.nvim",
   name = "sleezwave",
   lazy = false,
   priority = 1000,
@@ -86,7 +86,7 @@
 
 ```lua
 use {
-  "yourusername/sleezwave.nvim",
+  "tfpickard/sleezwave.nvim",
   config = function()
     require("sleezwave").setup()
     vim.cmd.colorscheme("sleezwave")
@@ -97,7 +97,7 @@ use {
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'yourusername/sleezwave.nvim'
+Plug 'tfpickard/sleezwave.nvim'
 
 " After plug#end()
 lua << EOF
@@ -109,7 +109,7 @@ EOF
 ### Manual Installation
 
 ```bash
-git clone https://github.com/yourusername/sleezwave.nvim.git \
+git clone https://github.com/tfpickard/sleezwave.nvim.git \
   ~/.config/nvim/pack/sleezwave/start/sleezwave.nvim
 ```
 
@@ -330,7 +330,7 @@ require("sleezwave").dev_reload()
 ### Building from Source
 
 ```bash
-git clone https://github.com/yourusername/sleezwave.nvim.git
+git clone https://github.com/tfpickard/sleezwave.nvim.git
 cd sleezwave.nvim
 
 # Test in Neovim
@@ -357,8 +357,8 @@ We welcome contributions! Please:
 
 ## 🐛 Issues & Support
 
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/yourusername/sleezwave.nvim/issues)
-- **💡 Feature Requests**: [GitHub Discussions](https://github.com/yourusername/sleezwave.nvim/discussions)
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/tfpickard/sleezwave.nvim/issues)
+- **💡 Feature Requests**: [GitHub Discussions](https://github.com/tfpickard/sleezwave.nvim/discussions)
 - **❓ Questions**: Check existing issues or start a discussion
 
 Please include your Neovim version, plugin manager, and minimal config when reporting issues.
@@ -367,9 +367,9 @@ Please include your Neovim version, plugin manager, and minimal config when repo
 
 Complete your synthwave terminal setup:
 
-- **[sleezwave tmux](https://github.com/yourusername/sleezwave-tmux)** - Matching tmux theme with status bar
-- **[sleezwave ghostty](https://github.com/yourusername/sleezwave-ghostty)** - Terminal colorscheme
-- **[sleezwave alacritty](https://github.com/yourusername/sleezwave-alacritty)** - Alacritty terminal colors
+- **[sleezwave tmux](https://github.com/tfpickard/sleezwave-tmux)** - Matching tmux theme with status bar
+- **[sleezwave ghostty](https://github.com/tfpickard/sleezwave-ghostty)** - Terminal colorscheme
+- **[sleezwave alacritty](https://github.com/tfpickard/sleezwave-alacritty)** - Alacritty terminal colors
 
 ## 📄 License
 
@@ -384,8 +384,8 @@ Complete your synthwave terminal setup:
 - [tokyonight](https://github.com/folke/tokyonight.nvim) for plugin integration patterns
 
 **Community:**
-- The amazing Neovim community
-- Plugin authors who make Neovim incredible
+- The dope Neovim community
+- Plugin authors who make Neovim slap
 - Beta testers and contributors
 
 ---
