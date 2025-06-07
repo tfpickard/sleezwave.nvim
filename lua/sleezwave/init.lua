@@ -2,10 +2,10 @@
 -- A synthwave-inspired colorscheme that's easy on the eyes
 -- Main plugin entry point
 
-local M = {}
+local Sleezwave = {}
 
 -- Default configuration
-M.config = {
+Sleezwave.config = {
 	variant = "dark", -- "dark" or "light" (light coming soon)
 	transparent = false,
 	terminal_colors = true,
@@ -43,19 +43,22 @@ M.config = {
 }
 
 -- Plugin setup function
-function M.setup(opts)
+function Sleezwave.setup(opts)
 	-- Merge user config with defaults
-	M.config = vim.tbl_deep_extend("force", M.config, opts or {})
+	Sleezwave.config = vim.tbl_deep_extend("force", Sleezwave.config, opts or {})
 
 	-- Validate variant
-	if M.config.variant ~= "dark" and M.config.variant ~= "light" then
-		vim.notify("sleezwave.nvim: Invalid variant '" .. M.config.variant .. "', using 'dark'", vim.log.levels.WARN)
-		M.config.variant = "dark"
+	if Sleezwave.config.variant ~= "dark" and Sleezwave.config.variant ~= "light" then
+		vim.notify(
+			"sleezwave.nvim: Invalid variant '" .. Sleezwave.config.variant .. "', using 'dark'",
+			vim.log.levels.WARN
+		)
+		Sleezwave.config.variant = "dark"
 	end
 end
 
 -- Load the colorscheme
-function M.load()
+function Sleezwave.load()
 	-- Reset existing highlights
 	if vim.g.colors_name then
 		vim.cmd("highlight clear")
@@ -66,7 +69,7 @@ function M.load()
 	end
 
 	-- Set background and name
-	vim.o.background = M.config.variant
+	vim.o.background = Sleezwave.config.variant
 	vim.g.colors_name = "sleezwave"
 
 	-- Load colors and apply highlights
@@ -74,21 +77,21 @@ function M.load()
 	local highlights = require("sleezwave.highlights")
 
 	-- Apply base highlights
-	highlights.setup(colors, M.config)
+	highlights.setup(colors, Sleezwave.config)
 
 	-- Apply terminal colors if enabled
-	if M.config.terminal_colors then
+	if Sleezwave.config.terminal_colors then
 		colors.setup_terminal()
 	end
 end
 
 -- Utility function to get colors (for other plugins)
-function M.get_colors()
+function Sleezwave.get_colors()
 	return require("sleezwave.colors").colors
 end
 
 -- Auto command to reload on config change (for development)
-function M.dev_reload()
+function Sleezwave.dev_reload()
 	vim.api.nvim_create_autocmd("BufWritePost", {
 		pattern = "*/sleezwave/*",
 		callback = function()
@@ -97,11 +100,11 @@ function M.dev_reload()
 					package.loaded[name] = nil
 				end
 			end
-			M.load()
+			Sleezwave.load()
 			vim.notify("sleezwave.nvim reloaded", vim.log.levels.INFO)
 		end,
 		group = vim.api.nvim_create_augroup("SleezwaveDevReload", { clear = true }),
 	})
 end
 
-return M
+return Sleezwave

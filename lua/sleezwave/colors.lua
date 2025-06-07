@@ -1,10 +1,10 @@
 -- sleezwave.nvim colors
 -- Color palette definitions
 
-local M = {}
+local Sleezwave = {}
 
 -- Core sleezwave color palette
-M.colors = {
+Sleezwave.colors = {
 	-- Base colors
 	bg = "#1a0d2e",
 	fg = "#c9a9dd",
@@ -58,37 +58,37 @@ M.colors = {
 }
 
 -- Light variant colors (for future implementation)
-M.light_colors = {
+Sleezwave.light_colors = {
 	bg = "#f8f0ff",
 	fg = "#4a2c5a",
 	-- ... (to be implemented)
 }
 
 -- Setup terminal colors
-function M.setup_terminal()
+function Sleezwave.setup_terminal()
 	-- Terminal color palette (0-15)
-	vim.g.terminal_color_0 = M.colors.bg -- black
-	vim.g.terminal_color_1 = M.colors.error -- red
-	vim.g.terminal_color_2 = M.colors.success -- green
-	vim.g.terminal_color_3 = M.colors.warning -- yellow
-	vim.g.terminal_color_4 = M.colors.electric_blue -- blue
-	vim.g.terminal_color_5 = M.colors.purple -- magenta
-	vim.g.terminal_color_6 = M.colors.electric_cyan -- cyan
-	vim.g.terminal_color_7 = M.colors.fg -- white
+	vim.g.terminal_color_0 = Sleezwave.colors.bg -- black
+	vim.g.terminal_color_1 = Sleezwave.colors.error -- red
+	vim.g.terminal_color_2 = Sleezwave.colors.success -- green
+	vim.g.terminal_color_3 = Sleezwave.colors.warning -- yellow
+	vim.g.terminal_color_4 = Sleezwave.colors.electric_blue -- blue
+	vim.g.terminal_color_5 = Sleezwave.colors.purple -- magenta
+	vim.g.terminal_color_6 = Sleezwave.colors.electric_cyan -- cyan
+	vim.g.terminal_color_7 = Sleezwave.colors.fg -- white
 
 	-- Bright variants
-	vim.g.terminal_color_8 = M.colors.dark_purple -- bright black
-	vim.g.terminal_color_9 = M.colors.muted_pink -- bright red
-	vim.g.terminal_color_10 = M.colors.muted_green -- bright green
-	vim.g.terminal_color_11 = M.colors.muted_yellow -- bright yellow
-	vim.g.terminal_color_12 = M.colors.muted_blue -- bright blue
-	vim.g.terminal_color_13 = M.colors.muted_purple -- bright magenta
-	vim.g.terminal_color_14 = M.colors.muted_cyan -- bright cyan
-	vim.g.terminal_color_15 = M.colors.light_purple -- bright white
+	vim.g.terminal_color_8 = Sleezwave.colors.dark_purple -- bright black
+	vim.g.terminal_color_9 = Sleezwave.colors.muted_pink -- bright red
+	vim.g.terminal_color_10 = Sleezwave.colors.muted_green -- bright green
+	vim.g.terminal_color_11 = Sleezwave.colors.muted_yellow -- bright yellow
+	vim.g.terminal_color_12 = Sleezwave.colors.muted_blue -- bright blue
+	vim.g.terminal_color_13 = Sleezwave.colors.muted_purple -- bright magenta
+	vim.g.terminal_color_14 = Sleezwave.colors.muted_cyan -- bright cyan
+	vim.g.terminal_color_15 = Sleezwave.colors.light_purple -- bright white
 end
 
 -- Utility functions for color manipulation
-function M.darken(color, amount)
+function Sleezwave.darken(color, amount)
 	if color == "NONE" then
 		return color
 	end
@@ -103,7 +103,7 @@ function M.darken(color, amount)
 	return string.format("#%02x%02x%02x", r, g, b)
 end
 
-function M.lighten(color, amount)
+function Sleezwave.lighten(color, amount)
 	if color == "NONE" then
 		return color
 	end
@@ -118,7 +118,7 @@ function M.lighten(color, amount)
 	return string.format("#%02x%02x%02x", r, g, b)
 end
 
-function M.blend(color1, color2, ratio)
+function Sleezwave.blend(color1, color2, ratio)
 	if color1 == "NONE" or color2 == "NONE" then
 		return color1
 	end
@@ -138,4 +138,4 @@ function M.blend(color1, color2, ratio)
 	return string.format("#%02x%02x%02x", r, g, b)
 end
 
-return M
+return Sleezwave
